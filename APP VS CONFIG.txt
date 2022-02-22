@@ -1,0 +1,29 @@
+﻿
+//CONFIGURATION APP.CONFIG
+
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2" />
+    </startup>
+  <connectionStrings>
+    <add connectionString="server = * ; database = AdventureWorksLT2019 ; uid = sa; pwd= *" 
+         name="cs_connection" />
+  </connectionStrings>
+</configuration>
+
+
+//TEST CONNECTION
+
+SqlConnection cn = new SqlConnection(
+                ConfigurationManager.ConnectionStrings["cs_connection"].ConnectionString
+                );
+            try
+            {
+                cn.Open();
+                MessageBox.Show("exitosa");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("error"+ ex);
+            }
